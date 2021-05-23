@@ -27,3 +27,5 @@ Route::get('/success', [App\Http\Controllers\IndexController::class, 'success'])
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('photos', PhotoController::class);
