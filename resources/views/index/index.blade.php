@@ -44,15 +44,15 @@ Pilihlah Gedung yang Anda Inginkan
             <img class="card-img-top img-responsive" src="{{ Storage::url($building->images[0]->image) }}" alt="Card image cap">
             @else
             <img class="card-img-top img-responsive" src="assets/images/big/img1.jpg" alt="Card image cap">
-            @endif 
+            @endif
             <div class="card-body">
                 <div class="text-center">
-                    <h4 class="card-title">{{ $building->name}}</h4>
+                    <h4 class="card-title">{{ $building->name }}</h4>
                 </div>
                 <hr>
                 <div class="mb-2">
                     <p class="mb-0 font-weight-bold">Alamat :</p>
-                    <p class="mb-0">{{ $building->address}}</p>
+                    <p class="mb-0">{{ $building->address }}</p>
                 </div>
                 <div class="d-flex mb-2">
                     <div class="mr-2 font-weight-bold align-items-center">
@@ -62,22 +62,23 @@ Pilihlah Gedung yang Anda Inginkan
                         <span class="badge badge-pill badge-warning">{{ $building->rooms->count() }}</span>
                     </div>
                 </div>
-                <div class="d-flex mb-2">
+                <!-- <div class="d-flex mb-2">
                     <div class="mr-2 font-weight-bold align-items-center">
                         <p class="mb-0">Jumlah Terpakai</p>
                     </div>
                     <div class="ml-auto align-items-center">
                         <span class="badge badge-pill badge-danger">5</span>
                     </div>
-                </div>
+                </div> -->
                 <hr>
-                <a href="{{ route('detail') }}" class="btn btn-info btn-block">
+                <a href="{{ route('detail', $building->id) }}" class="btn btn-info btn-block">
                     Cek Ruangan
                 </a>
             </div>
         </div>
     </div>
-    @foreach
+    @endforeach
+
 </div>
 
 <div class="row">
@@ -85,6 +86,7 @@ Pilihlah Gedung yang Anda Inginkan
         {{ $buildings->links('pagination::bootstrap-4') }}
     </div>
 </div>
+
 
 @endsection
 
