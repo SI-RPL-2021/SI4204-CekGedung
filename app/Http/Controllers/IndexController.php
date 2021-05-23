@@ -8,16 +8,26 @@ use App\Utilities\Helpers;
 use App\Http\Requests\Index\UpdateProfileRequest;
 use App\Http\Requests\Index\UpdatePasswordRequest;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Building;
 
 class IndexController extends Controller
 {
     public function landing(){
         return view ('index.home');
     }
-    
-    public function index()
+
+    public function index(Request $request)
     {
-        return view('index.index');
+        if ($request->query('title') !== null) {
+            $buildings = Building::where('name', 'like', '%'.$request->query('title').'%')->paginate(6);
+        } else {
+            $buildings = Building::paginate(6);
+        }
+
+        return view('index.index')->with([
+            'buildings' => $buildings
+        ]);
+
     }
 
     public function detail()
