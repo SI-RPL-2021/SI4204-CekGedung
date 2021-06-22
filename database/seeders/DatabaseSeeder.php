@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\ImageBuilding;
 use Illuminate\Database\Seeder;
 use App\Models\Room;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +16,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->insert([ 
+            'id' => '1',
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('admin12345'),
+            'role' => 'admin',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
         // \App\Models\User::factory(10)->create();
         \App\Models\Building::factory(10)
         ->has(
