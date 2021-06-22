@@ -51,3 +51,10 @@ Route::get('/admin', [IndexController::class, 'admin'])->name('dashboard.index')
 Route::get('/admin/booking', [BookingController::class, 'index_admin'])->name('dashboard.booking');
 Route::post('/admin/booking/{id}/approve', [BookingController::class, 'approve'])->name('dashboard.approve');
 Route::post('/admin/booking/{id}/decline', [BookingController::class, 'decline'])->name('dashboard.decline');
+Route::post('/admin/booking/{id}/decline', [BookingController::class, 'decline'])->name('dashboard.decline');
+Route::get('/admin/scanning/gedung', [ScannerController::class, 'scan_gedung'])->name('dashboard.scan.gedung');
+Route::get('/admin/scanning/ruangan', [ScannerController::class, 'scan_ruangan'])->name('dashboard.scan.ruangan');
+Route::resource('admin/gedung', BuildingController::class);
+Route::resource('admin/ruangan', RoomController::class);
+Route::resource('admin/crud/gedung', BuildingController::class);
+Route::resource('admin/crud/ruangan', RoomController::class);
