@@ -40,8 +40,10 @@ Riwayat Booking
                     </form>            
                 </td>
                 <td>
-                    
-                   
+                    <form action="{{ route('scanner.index') }}" method="GET">
+                        <input type="hidden" name="bookingId" value="{{$booking->id}}" />
+                        <button class="btn btn-primary w-100" type="submit">Scanning Pengunjung</button> 
+                    </form>    
                 </td>
             @else
             <td>
