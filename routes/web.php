@@ -5,6 +5,8 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\ScannerController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\ImageBuildingController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -54,7 +56,8 @@ Route::post('/admin/booking/{id}/decline', [BookingController::class, 'decline']
 Route::post('/admin/booking/{id}/decline', [BookingController::class, 'decline'])->name('dashboard.decline');
 Route::get('/admin/scanning/gedung', [ScannerController::class, 'scan_gedung'])->name('dashboard.scan.gedung');
 Route::get('/admin/scanning/ruangan', [ScannerController::class, 'scan_ruangan'])->name('dashboard.scan.ruangan');
-Route::resource('admin/gedung', BuildingController::class);
-Route::resource('admin/ruangan', RoomController::class);
 Route::resource('admin/crud/gedung', BuildingController::class);
 Route::resource('admin/crud/ruangan', RoomController::class);
+Route::resource('admin/notification', NotificationController::class);
+Route::resource('admin/image-gambar', ImageBuildingController::class);
+Route::resource('admin/image-room', ImageRoomController::class);

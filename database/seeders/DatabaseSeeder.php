@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\ImageBuilding;
-use Illuminate\Database\Seeder;
 use App\Models\Room;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
@@ -26,7 +26,6 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-        // \App\Models\User::factory(10)->create();
         \App\Models\Building::factory(10)
         ->has(
             Room::factory()
@@ -36,5 +35,7 @@ class DatabaseSeeder extends Seeder
             ImageBuilding::factory()->count(4), 'images'
         )
         ->create();
+
+        
     }
 }
